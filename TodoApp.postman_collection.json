@@ -1,0 +1,99 @@
+{
+  "info": {
+    "name": "Todo App API",
+    "description": "A collection of API endpoints for testing the Todo application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Todo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"Complete Project\",\n    \"description\": \"Finish the Todo application implementation\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/todos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "todos"]
+        },
+        "description": "Create a new todo item"
+      }
+    },
+    {
+      "name": "List Todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/todos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "todos"]
+        },
+        "description": "Get all todo items"
+      }
+    },
+    {
+      "name": "Complete Todo",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/todos/:id/complete",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "todos", ":id", "complete"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "todo-id-here",
+              "description": "The ID of the todo to complete"
+            }
+          ]
+        },
+        "description": "Mark a todo item as complete"
+      }
+    },
+    {
+      "name": "Delete Todo",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/todos/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "todos", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "todo-id-here",
+              "description": "The ID of the todo to delete"
+            }
+          ]
+        },
+        "description": "Delete a todo item"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+} 
