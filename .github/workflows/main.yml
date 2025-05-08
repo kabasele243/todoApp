@@ -1,0 +1,12 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    uses: ./.github/workflows/test.yml
+    with:
+      node-version: '20.x'
