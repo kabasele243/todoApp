@@ -3,6 +3,7 @@ import { TodoController } from '../controllers/TodoController';
 
 export function createTodoRoutes(controller: TodoController): Router {
   const router = Router();
+  // TODO: Add routes here
 
   router.post('/', (req: Request, res: Response) => controller.create(req, res));
   router.get('/', (req: Request, res: Response) => controller.list(req, res));
