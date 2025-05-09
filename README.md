@@ -47,6 +47,107 @@ npm run dev
 
 The server will start on port 3000 by default. You can change this by setting the `PORT` environment variable.
 
+## 🐳 Docker Setup
+
+The application can be run using Docker in both development and production modes.
+
+### Development Mode
+
+To run the application in development mode with hot reloading:
+
+```bash
+docker compose -f docker-compose.dev.yml up --build
+```
+
+This setup:
+- Mounts your local code into the container
+- Enables hot reloading
+- Preserves node_modules in the container
+- Runs in development mode with full debugging capabilities
+
+### Production Mode
+
+To run the application in production mode:
+
+```bash
+docker compose up --build
+```
+
+This setup:
+- Builds an optimized production image
+- Runs in production mode
+- Includes health checks
+- Restarts automatically unless stopped
+
+Both modes will make the application available at `http://localhost:3000`.
+
+### Docker Commands
+
+Here are the most commonly used Docker commands for this project:
+
+#### Starting Containers
+```bash
+# Start in development mode
+docker compose -f docker-compose.dev.yml up
+
+# Start in development mode with rebuild
+docker compose -f docker-compose.dev.yml up --build
+
+# Start in production mode
+docker compose up
+
+# Start in production mode with rebuild
+docker compose up --build
+
+# Start in detached mode (background)
+docker compose up -d
+```
+
+#### Stopping Containers
+```bash
+# Stop containers (development)
+docker compose -f docker-compose.dev.yml down
+
+# Stop containers (production)
+docker compose down
+
+# Stop containers and remove volumes
+docker compose down -v
+
+# Stop containers without removing them
+docker compose stop
+```
+
+#### Viewing Logs
+```bash
+# View logs (development)
+docker compose -f docker-compose.dev.yml logs -f
+
+# View logs (production)
+docker compose logs -f
+```
+
+#### Container Management
+```bash
+# List running containers
+docker compose ps
+
+# List all containers (including stopped)
+docker compose ps -a
+
+# Remove all stopped containers
+docker compose rm
+```
+
+#### Cleanup
+```bash
+# Remove all containers, networks, and volumes
+docker compose down -v
+
+# Remove all unused containers, networks, and images
+docker system prune
+```
+
 ## 🧪 Testing
 
 Run the test suite:

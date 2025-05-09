@@ -32,6 +32,11 @@ const todoController = new TodoController(
 // Routes
 app.use('/api/todos', createTodoRoutes(todoController));
 
+// Health check endpoint
+app.get('/health', (req: express.Request, res: express.Response) => {
+  res.status(200).json({ status: 'healthy bro' });
+});
+
 // Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error(err.stack);
